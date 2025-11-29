@@ -14,16 +14,28 @@ function createGrid(size){
     
 }
 
-createGrid(16);
-const squares = document.querySelectorAll('.square');
-const square = squares.forEach((square) => {
+function colorSquare(){
+    const squares = document.querySelectorAll('.square');
+    squares.forEach((square) => {
     square.addEventListener("mouseover", () =>{
-        square.classList.add('colorSquare');
+    square.classList.add('colorSquare');
     });
 });
+}
+createGrid(16);
+colorSquare();
 
 const btn = document.querySelector("#canvas");
 btn.addEventListener("click", () => {
     size = prompt("Choose a size equal or less than 100.");
+    while(container.firstChild){
+        container.removeChild(container.firstChild);
+    }
     createGrid(size);
+    colorSquare();
 });
+
+
+
+
+
